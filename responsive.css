@@ -1,0 +1,114 @@
+/* ============================================
+   RESPONSIVE.CSS — Adaptation mobile & tablette
+   ============================================ */
+
+/* ===== TABLETTE (≤ 1024px) ===== */
+@media (max-width: 1024px) {
+  .about-content {
+    grid-template-columns: 220px 1fr;
+    gap: 2.5rem;
+  }
+
+}
+
+/* ===== TABLETTE / MOBILE LARGE (≤ 850px) ===== */
+@media (max-width: 850px) {
+
+  /* Menu hamburger visible */
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: min(75%, 320px);
+    background: var(--black-soft);
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem 3rem;
+    transition: right 0.4s ease;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    border-left: 1px solid var(--border);
+  }
+
+  /* Ouverture du menu : pilotée uniquement par le checkbox coché (CSS pur) */
+  .menu-toggle:checked ~ .nav-links {
+    right: 0;
+  }
+
+  /* Overlay cliquable derrière le menu pour le refermer (CSS pur) */
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 900;
+  }
+
+  .menu-toggle:checked ~ .nav-overlay {
+    display: block;
+  }
+
+  .nav-link {
+    font-size: 1.2rem;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+
+  .about-frame {
+    max-width: 220px;
+    margin: 0 auto;
+  }
+
+  .about-info {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== MOBILE (≤ 600px) ===== */
+@media (max-width: 600px) {
+  .nav-container {
+    padding: 1rem 1.3rem;
+  }
+
+  .hero {
+    padding: 0 1.3rem;
+    min-height: 92vh;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-buttons .btn {
+    text-align: center;
+  }
+
+  .section {
+    padding: 4.5rem 1.3rem;
+  }
+
+  .section-header {
+    margin-bottom: 2.2rem;
+  }
+
+}
+
+/* ===== TRÈS PETIT ÉCRAN (≤ 380px) ===== */
+@media (max-width: 380px) {
+  .hero-title {
+    font-size: 2.3rem;
+  }
+
+  .logo-img {
+    height: 32px;
+  }
+}

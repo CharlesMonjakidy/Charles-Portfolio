@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | Développeur Web</title>
+
+<!-- Polices Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Feuilles de style organisées par dossier -->
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="responsive.css">
+<link rel="stylesheet" href="animation.css">
+</head>
+<body>
+
+<!-- ===== NAVIGATION (100% CSS, sans JS) ===== -->
+<header class="navbar">
+  <div class="nav-container">
+
+    <!-- Logo -->
+    <a href="#accueil" class="logo">
+      <img src="./IMG_20260704_224435-removebg-preview.png" alt="Logo" class="logo-img">
+    </a>
+
+    <!-- Checkbox invisible qui pilote l'état ouvert/fermé du menu -->
+    <input type="checkbox" id="menuToggle" class="menu-toggle">
+
+    <!-- Menu -->
+    <ul class="nav-links">
+      <li><a href="#about" class="nav-link">À propos</a></li>
+      <li><a href="#skills" class="nav-link">Compétences</a></li>
+      <li><a href="#projets" class="nav-link">Projets</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+
+    <!-- Label = bouton Hamburger (3 barres), relié au checkbox -->
+    <label for="menuToggle" class="hamburger" aria-label="Ouvrir le menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </label>
+
+    <!-- Overlay cliquable pour fermer le menu (clic en dehors), relié au même checkbox -->
+    <label for="menuToggle" class="nav-overlay" aria-hidden="true"></label>
+
+  </div>
+</header>
+
+<!-- ===== HERO / ACCUEIL ===== -->
+<section id="accueil" class="hero">
+  <div class="hero-content">
+    <p class="hero-eyebrow">Bonjour, je suis</p>
+    <h1 class="hero-title">MONJAKIDY<span class="accent">Charles Celestin</span></h1>
+    <h2 class="hero-subtitle">Développeur Web Front-End</h2>
+    <p class="hero-text">
+      Je conçois des interfaces web modernes, simples et efficaces.
+      Passionné par le code propre et le design qui a du sens.
+    </p>
+    <div class="hero-buttons">
+      <a href="#projets" class="btn btn-primary">Voir mes projets</a>
+      <a href="#contact" class="btn btn-outline">Me contacter</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="./17801745855866-removebg-preview.png" alt="">
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="section about">
+  <div class="section-header">
+    <span class="section-number">01</span>
+    <h2 class="section-title">À propos de moi</h2>
+  </div>
+
+  <div class="about-content">
+    <div class="about-image">
+      <div class="about-img">
+        <img src="./file_0000000026b481f4be2a54e680afb414.png" alt="">
+      </div>
+    </div>
+    <div class="about-text">
+      <p>
+        Débutant motivé dans le développement web, je me forme aux technologies
+        HTML, CSS et JavaScript avec l'ambition de créer des expériences
+        digitales claires et agréables à utiliser.
+      </p>
+      <p>
+        Curieux et rigoureux, j'aime apprendre en construisant de vrais projets,
+        étape par étape, en soignant chaque détail : structure, style et
+        interactions.
+      </p>
+      <div class="about-info">
+        <div class="info-item">
+          <span class="info-label">Nom</span>
+          <span class="info-value">Charles Celestin</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Statut</span>
+          <span class="info-value">Développeur débutant</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Localisation</span>
+          <span class="info-value">Madagascar</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Email</span>
+          <span class="info-value">charlesmonjakidy@gmail.com</span>
+        </div>
+      </div>
+    </div>
+  </div>
+ </section>
+
+</body>
+</html>
