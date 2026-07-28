@@ -1,4 +1,4 @@
-/* ============================================
+/* /* ============================================
    RESPONSIVE.CSS — Adaptation mobile & tablette
    ============================================ */
 
@@ -8,11 +8,23 @@
     grid-template-columns: 220px 1fr;
     gap: 2.5rem;
   }
+      .section{
+        padding: 5rem 2rem;
+    }
+    .skills-grid,
+    .projects-grid{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    .about-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
 
 }
 
 /* ===== TABLETTE / MOBILE LARGE (≤ 850px) ===== */
-@media (max-width: 850px) {
+@media (max-width: 768px) {
 
   /* Menu hamburger visible */
   .hamburger {
@@ -70,10 +82,12 @@
   .about-info {
     grid-template-columns: 1fr;
   }
+
+
 }
 
 /* ===== MOBILE (≤ 600px) ===== */
-@media (max-width: 600px) {
+@media (max-width: 480px) {
   .nav-container {
     padding: 1rem 1.3rem;
   }
@@ -98,8 +112,31 @@
 
   .section-header {
     margin-bottom: 2.2rem;
+  }  
+  .hero-image{
+    right: -10px;
+    opacity: 1;
   }
-
+      /*---------- CONTACT --------*/
+    .contact-content{
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    .contact-from button{
+        width: 100%;
+    }
+  .contact-label{
+    font-size: 0.75rem;
+  }
+ .contact-from input,
+ .contact-from textarea,
+ .contact-from button {
+  padding: 0.8rem;
+  font-size: 0.9rem;
+ }
+ .contact-from button{
+  width: 100%;
+ }
 }
 
 /* ===== TRÈS PETIT ÉCRAN (≤ 380px) ===== */
@@ -111,4 +148,20 @@
   .logo-img {
     height: 32px;
   }
-}
+      .section{
+        padding: 3.5rem 1rem;
+    }
+    .nav-links{
+        width: 85%;
+    }
+    .hero-title{
+        font-size: 2rem;
+    }
+    .btn{
+        padding: 0.8rem 1.2rem;
+        font-size: O.88rem;
+    }
+    .skills-card{
+        padding: 1.5rem 1.2rem;
+    }
+} 
