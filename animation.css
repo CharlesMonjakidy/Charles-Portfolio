@@ -1,0 +1,166 @@
+/* ============================================
+   ANIMATION.CSS — Animations et transitions
+   100% CSS pur, aucune dépendance JS
+   ============================================ */
+
+/* ===== Apparition du Hero au chargement ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-eyebrow  { animation: fadeInUp 0.6s ease 0.1s both; }
+.hero-title    { animation: fadeInUp 0.7s ease 0.2s both; }
+.hero-subtitle { animation: fadeInUp 0.7s ease 0.3s both; }
+.hero-text     { animation: fadeInUp 0.7s ease 0.4s both; }
+.hero-buttons  { animation: fadeInUp 0.7s ease 0.5s both; }
+
+/* ===== Halo décoratif du Hero (pulsation douce) ===== */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; transform: translateY(-50%) scale(1); }
+  50%      { opacity: 1;   transform: translateY(-50%) scale(1.08); }
+}
+
+.hero-shape {
+  animation: pulseGlow 6s ease-in-out infinite;
+}
+
+/* ===== Apparition des sections au chargement (CSS pur) =====
+   Remplace l'ancien "reveal au scroll" piloté par JS : ici
+   chaque section s'anime automatiquement via @keyframes,
+   avec un délai croissant pour un effet de cascade léger. */
+@keyframes fadeInSection {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-header,
+.about-content,
+.skills-grid,
+.projects-grid,
+.contact-content {
+  animation: fadeInSection 0.8s ease both;
+}
+
+.about .section-header   { animation-delay: 0.05s; }
+.about .about-content     { animation-delay: 0.15s; }
+
+.skills .section-header  { animation-delay: 0.05s; }
+.skills .skills-grid      { animation-delay: 0.15s; }
+
+.projects .section-header{ animation-delay: 0.05s; }
+.projects .projects-grid  { animation-delay: 0.15s; }
+
+.contact .section-header { animation-delay: 0.05s; }
+.contact .contact-content { animation-delay: 0.15s; }
+
+/* Décalage progressif pour les cartes des grilles */
+.skill-card,
+.project-card {
+  animation: fadeInUp 0.6s ease both;
+}
+
+.skill-card:nth-child(1) { animation-delay: 0.2s; }
+.skill-card:nth-child(2) { animation-delay: 0.25s; }
+.skill-card:nth-child(3) { animation-delay: 0.3s; }
+.skill-card:nth-child(4) { animation-delay: 0.35s; }
+.skill-card:nth-child(5) { animation-delay: 0.4s; }
+.skill-card:nth-child(6) { animation-delay: 0.45s; }
+
+.project-card:nth-child(1) { animation-delay: 0.2s; }
+.project-card:nth-child(2) { animation-delay: 0.3s; }
+.project-card:nth-child(3) { animation-delay: 0.4s; }
+
+/* ===== Remplissage des barres de compétences (CSS pur) ===== */
+@keyframes fillBar {
+  from { width: 0; }
+  to   { width: var(--fill, 100%); }
+}
+
+.skill-fill {
+  animation: fillBar 1.2s ease 0.6s both;
+}
+
+/* ===== Boutons : effet d'appui ===== */
+.btn:active {
+  transform: scale(0.96);
+}
+
+/* ===== Logo : légère rotation au survol ===== */
+.logo-img {
+  transition: transform 0.3s ease;
+}
+
+.logo:hover .logo-img {
+  transform: rotate(-4deg) scale(1.05);
+}
+
+/* ===== Cartes projet : effet de brillance au survol ===== */
+.project-thumb {
+  overflow: hidden;
+  position: relative;
+}
+
+.project-thumb::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 122, 26, 0.15),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+}
+
+.project-card:hover .project-thumb::after {
+  left: 120%;
+}
+
+/* ===== Menu mobile : apparition des liens en cascade (CSS pur) ===== */
+@media (max-width: 850px) {
+  .nav-links li {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  .menu-toggle:checked ~ .nav-links li {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .menu-toggle:checked ~ .nav-links li:nth-child(1) { transition-delay: 0.1s; }
+  .menu-toggle:checked ~ .nav-links li:nth-child(2) { transition-delay: 0.18s; }
+  .menu-toggle:checked ~ .nav-links li:nth-child(3) { transition-delay: 0.26s; }
+  .menu-toggle:checked ~ .nav-links li:nth-child(4) { transition-delay: 0.34s; }
+}
+
+/* ===== Respect des préférences de mouvement réduit ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
