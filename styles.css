@@ -124,12 +124,12 @@ img {
   left: 0;
   width: 0;
   height: 2px;
-  background: #ff7a1a;
+   background: #ff7a1a; 
   transition: width 0.3s ease;
 }
 
 .nav-link:hover {
-  color: #ff7a1a;
+  color: #ff7a1a ;
 
 }
 
@@ -227,7 +227,7 @@ img {
 }
 
 .hero-text {
-  color: #a19b93;
+  color: #ffff;
   font-size: 1.05rem;
   max-width: 520px;
   margin-bottom: 2.2rem;
@@ -242,7 +242,7 @@ img {
 .hero-image {
   position: absolute;
   top: 50%;
-  right: 0px;
+  right: 0px; 
   transform: translateY(-50%);
   width: 500px;
   height: 500px;
@@ -275,6 +275,7 @@ img {
   max-width: 1200px;
   margin: 0 auto;
   padding: 7rem 2rem;
+  transition: all 2s ease;
 }
 
 .section-header {
@@ -312,6 +313,7 @@ img {
   grid-template-columns: 280px 1fr;
   gap: 3.5rem;
   align-items: start;
+  transition: all 2s ease;
 }
 
 .about-img {
@@ -494,6 +496,7 @@ img {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: 3rem;
+    transition: all 2s ease;
 }
 
 .contact-info p {

@@ -114,8 +114,11 @@
     margin-bottom: 2.2rem;
   }  
   .hero-image{
-    right: -10px;
+    right: -15px;
     opacity: 1;
+  }
+  .hero-text{
+    color: #a19b93;
   }
       /*---------- CONTACT --------*/
     .contact-content{
@@ -136,6 +139,15 @@
  }
  .contact-from button{
   width: 100%;
+ }
+ /*---------------PROJECTS-GRIDS---------------*/
+ .projects-grid{
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+ }
+ /*------SKILLS-GRID---------------*/
+ .skill-grid{
+  gap: 1rem;
  }
 }
 
