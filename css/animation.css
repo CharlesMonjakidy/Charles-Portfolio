@@ -1,0 +1,86 @@
+/* ==============================
+   ANIMATIONS DU PORTFOLIO
+   ============================== */
+@keyframes entree-gauche {
+    from { opacity: 0; transform: translateX(-28px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes entree-droite {
+    from { opacity: 0; transform: translateX(28px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes flottement {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+@keyframes rotation {
+    from { transform: rotate(0); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes rotation-inverse {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0); }
+}
+
+@keyframes apparition-carte {
+    from { opacity: 0; transform: translateY(18px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.presentation {
+    animation: entree-gauche 0.8s ease both;
+}
+
+.visuel-accueil {
+    animation: entree-droite 0.9s ease both;
+}
+
+.code-flottant,
+.pastille-flottante {
+    animation: flottement 4s ease-in-out infinite;
+}
+
+.code-bas {
+    animation-delay: 1.2s;
+}
+
+.pastille-flottante {
+    animation-delay: 0.6s;
+}
+
+.section-anime {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.section-anime.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.carte-apropos,
+.carte-projet,
+.carte-competence {
+    animation: apparition-carte 0.6s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .section-anime {
+        opacity: 1;
+        transform: none;
+    }
+}

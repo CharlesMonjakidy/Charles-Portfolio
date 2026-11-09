@@ -2,237 +2,311 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <!-- Permet au site de s'adapter à la largeur du téléphone -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de Charles Azel, développeur front-end.">
-    <title>Charles Azel | Développeur Front-End</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="animation.css">
-    <link rel="stylesheet" href="responsive.css">
-    <!-- Police moderne depuis Google Fonts ; le site garde une police de secours si Internet manque -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="Portfolio de Charles MONJAKIDY, étudiant en informatique et passionné de technologie.">
+    <meta name="theme-color" content="#080d1c">
+    <title>Charles MONJAKIDY | Portfolio</title>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animation.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-    <!-- Barre de navigation -->
-    <header class="haut">
-        <nav class="nav contenu" aria-label="Navigation principale">
-            <a class="logo" href="#accueil" aria-label="Retour à l'accueil">
-                <img src="./IMG_20260704_224435-removebg-preview.png" alt="" class="marque"></a>
+    <div class="fond-anime" aria-hidden="true">
+        <span class="lueur lueur-une"></span>
+        <span class="lueur lueur-deux"></span>
+        <span class="grille-fond"></span>
+    </div>
 
-            <button class="menu" id="menu" aria-label="Ouvrir le menu" aria-expanded="false">
+    <header class="entete" id="haut">
+        <nav class="navigation conteneur" aria-label="Navigation principale">
+            <a class="marque" href="#accueil" aria-label="Charles MONJAKIDY, accueil">
+                <img src="images/logo-charles.png" alt="Logo Charles">
+            </a>
+
+            <button class="bouton-menu" id="bouton-menu" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
 
-            <div class="liens" id="liens">
-                <a class="actif" href="#accueil">Accueil</a>
-                <a href="#apropos">À propos</a>
-                <a href="#projets">Projets</a>
-                <a href="#competences">Compétences</a>
-                <a href="#contact">Contact</a>
+            <div class="liens-navigation" id="liens-navigation">
+                <a class="lien-navigation actif" href="#accueil">Accueil</a>
+                <a class="lien-navigation" href="#apropos">À propos</a>
+                <a class="lien-navigation" href="#projets">Projets</a>
+                <a class="lien-navigation" href="#competences">Compétences</a>
+                <a class="lien-navigation" href="#contact">Contact</a>
             </div>
 
-            <div class="actions">
-                <button class="nuit" id="nuit" aria-label="Changer le thème" title="Changer le thème">☾</button>
-                <a class="bouton contour petit" href="cv.pdf" download>Télécharger CV</a>
+            <div class="actions-navigation">
+                <button class="bouton-theme" id="bouton-theme" type="button" aria-label="Activer le thème clair">
+                    <!-- <i class="fa-regular fa-moon"></i> -->☀️
+                </button>
+                <a class="bouton bouton-secondaire bouton-cv" href="cv.pdf" download>
+                    <i class="fa-solid fa-download"></i> Télécharger CV
+                </a>
             </div>
         </nav>
     </header>
 
     <main>
-        <!-- Présentation principale -->
-        <section class="accueil contenu" id="accueil">
-            <div class="intro">
-                <span class="etiquette"><span class="point"></span> Développeur Front-End</span>
-                <p class="salut">Bonjour, je suis</p>
-                <h1>Charles <span class="degrade">MONJAKIDY</span></h1>
-                <p class="texte">Je crée des expériences web modernes,<br class="grand"> rapides et accessibles.</p>
-
-                <div class="badges">
-                    <span>🌐 HTML</span><span>🎨 CSS</span><span>🟨 JavaScript</span>
-                    <span>⚛ React</span><span>✳ TypeScrippt</span>
+        <section class="accueil conteneur section-anime" id="accueil">
+            <div class="presentation">
+                <span class="etiquette-disponibilite"><span class="point-actif"></span> Étudiant en informatique<b>-Développeur Front-End</b></span>
+                <p class="salutation">BONJOUR, MOI C'EST</p>
+                <h1>Charles <span class="texte-degrade">MONJAKIDY</span></h1>
+                <h2>Étudiant en informatique <span>&amp;</span> passionné de technologie</h2>
+                <p class="description-accueil">
+                    Je crée des expériences numériques modernes, utiles et accessibles.
+                    J'aime transformer mes idées en projets concrets et apprendre chaque jour
+                    de nouvelles technologies.
+                </p>
+                <div class="badges-technologies">
+                    <span><i class="fa-brands fa-html5"></i>🌐 HTML</span>
+                    <span><i class="fa-brands fa-css3-alt"></i>🎨 CSS</span>
+                    <span><i class="fa-brands fa-js"></i>🟨 JavaScript</span>
+                    <span><i class="fa-brands fa-react"></i>⚛ React</span>
+                    <span><i class="fa-brands fa-git-alt"></i>✳ Git</span>
                 </div>
-
-                <div class="boutons">
-                    <a class="bouton plein" href="#projets">Voir mes projets <span>→</span></a>
-                    <a class="bouton contour" href="#contact">Me contacter <span>✉</span></a>
+                <div class="actions-accueil">
+                    <a class="bouton bouton-principal" href="#projets">Voir mes projets <i class="fa-solid fa-arrow-right"></i></a>
+                    <a class="bouton bouton-secondaire" href="#contact">Me contacter <i class="fa-regular fa-paper-plane"></i></a>
+                </div>
+                <div class="reseaux-accueil" aria-label="Réseaux sociaux">
+                    <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
 
-            <!-- Illustration codée en CSS : fonctionne même sans image téléchargée -->
-            <div class="visuel" aria-label="Illustration décorative de développeur">
-                <div class="halo halo1"></div>
-                <div class="halo halo2"></div>
-                <div class="cadre">
-                    <div class="fenetre">
-                        <div class="points"><i></i><i></i><i></i></div>
-                        <span class="symbole">&lt;/&gt;</span>
-                        <p>const dreams = {</p>
-                        <p class="code">　code: true,</p>
-                        <p class="code">　success: true</p>
-                        <p>};</p>
+            <div class="visuel-accueil">
+                <span class="anneau anneau-un"></span>
+                <span class="anneau anneau-deux"></span>
+                <div class="cadre-photo">
+                    <div class="barre-fenetre">
+                        <span></span><span></span><span></span>
+                        <small>charles.png</small>
                     </div>
-                    
-                    <div class="avatar">
-                        <img src="./file_0000000026b481f4be2a54e680afb414.png" alt="Charles"
-                    class="profil">
+                    <div class="zone-photo">
+                        <div class="emplacement-photo">
+                            <i class="fa-regular fa-user"></i>
+                            <!-- <strong>Votre photo ici</strong>
+                            <span>Remplacez ce bloc par votre image</span> -->
+                            <img src="images/file_0000000026b481f4be2a54e680afb414.png" alt="">
+                        </div>
                     </div>
+                    <div class="pied-photo"><span class="point-actif"></span> Toujours en apprentissage</div>
                 </div>
-                <div class="mini-code">
-                    <div class="points"><i></i><i></i><i></i></div>
-                    <code>const passion = "web";<br>buildSomethingGreat();</code>
-                </div>
+                <div class="code-flottant code-haut"><span>01</span> const passion = "code";</div>
+                <div class="code-flottant code-bas"><span>02</span> create(); innovate();</div>
+                <div class="pastille-flottante"><i class="fa-solid fa-code"></i> Développeur en devenir</div>
             </div>
         </section>
 
-        <!-- Petite présentation complémentaire -->
-        <section class="section contenu" id="apropos">
-            <div class="titre">
-                <span class="sur-titre">QUI SUIS-JE ?</span>
-                <h2>À propos de <span class="degrade">moi</span></h2>
+        <section class="section conteneur section-anime" id="apropos">
+            <div class="entete-section">
+                <p class="surtitre">DÉCOUVRONS MON UNIVERS</p>
+                <h2>À propos de <span class="texte-degrade">moi</span></h2>
+                <p>Derrière chaque ligne de code, une idée. Derrière chaque projet, une ambition.</p>
             </div>
-            <p class="apropos">Je suis Charles Azel, passionné par le développement front-end et la création d'interfaces web propres, rapides et adaptées à tous les écrans. Je transforme les idées en expériences numériques simples et agréables.</p>
-        </section>
 
-        <!-- Projets à personnaliser avec tes vrais travaux -->
-        <section class="section contenu" id="projets">
-            <div class="ligne-titre">
-                <div class="titre">
-                    <span class="sur-titre">CE QUE JE CRÉE</span>
-                    <h2>Mes <span class="degrade">Projets</span></h2>
-                    <p>Des projets modernes et responsives, réalisés avec passion.</p>
+            <div class="apropos-introduction">
+                <div class="apropos-texte">
+                    <p class="surtitre">BONJOUR, MOI C'EST</p>
+                    <h3>Charles <span id="nom-anime" class="texte-degrade">Azel</span></h3>
+                    <h4>Étudiant en informatique &amp; passionné de technologie</h4>
+                    <p>Je suis un étudiant en informatique passionné par le développement et la création de solutions numériques. J'aime transformer mes idées en projets concrets, explorer de nouvelles technologies et relever des défis qui me permettent de progresser.</p>
+                    <p>Mon objectif est de concevoir des applications et des interfaces modernes, utiles et accessibles. Chaque projet est pour moi une occasion d'apprendre, d'innover et d'améliorer mes compétences.</p>
+                    <div class="actions-apropos">
+                        <a class="bouton bouton-principal" href="#projets">Découvrir mes projets <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <a class="bouton bouton-secondaire" href="#contact"><i class="fa-regular fa-envelope"></i> Me contacter</a>
+                    </div>
                 </div>
-                <a class="tout" href="#contact">Voir tous <span>→</span></a>
+
+                <div class="fenetre-code">
+                    <div class="entete-code">
+                        <div><i></i><i></i><i></i></div>
+                        <span>about-me.js</span>
+                    </div>
+                    <pre><code><span class="mot-cle">const</span> developer = {
+  name: <span class="chaine">'Charles Azel'</span>,
+  status: <span class="chaine">'Étudiant'</span>,
+  passion: <span class="chaine">'Informatique'</span>,
+  goal: <span class="chaine">'Créer et innover'</span>
+};
+
+<span class="commentaire">// Le meilleur reste à coder...</span></code></pre>
+                    <div class="pied-code"><span class="point-actif"></span> Toujours en apprentissage</div>
+                </div>
             </div>
 
-            <div class="cartes">
-                <article class="carte">
-                    <div class="image jeu">
-                        <div class="jeu-boite">GAME<span>ZONE</span></div>
-                        <span class="petit-texte">PLAY · EXPLORE · WIN</span>
-                    </div>
-                    <div class="carte-bas">
-                        <div><h3>GameZone</h3><p>Site de jeux moderne</p></div>
-                        <a class="fleche" href="#contact" aria-label="En savoir plus sur GameZone">↗</a>
-                    </div>
+            <div class="grille-apropos">
+                <article class="carte-apropos">
+                    <span class="icone-carte"><i class="fa-solid fa-graduation-cap"></i></span>
+                    <h3>Mon parcours</h3>
+                    <p>Je construis mes connaissances en informatique à travers mes études, la pratique et la réalisation de projets.</p>
                 </article>
-
-                <article class="carte">
-                    <div class="image etude">
-                        <div class="etude-boite">Study<span>Hub</span></div>
-                        <div class="fausses-lignes"><i></i><i></i><i></i></div>
-                    </div>
-                    <div class="carte-bas">
-                        <div><h3>StudyHub</h3><p>Plateforme éducative</p></div>
-                        <a class="fleche" href="#contact" aria-label="En savoir plus sur StudyHub">↗</a>
-                    </div>
+                <article class="carte-apropos">
+                    <span class="icone-carte violet"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+                    <h3>Ma vision</h3>
+                    <p>Utiliser la technologie pour résoudre des problèmes réels et créer des expériences simples et agréables.</p>
                 </article>
-
-                <article class="carte">
-                    <div class="image argent">
-                        <div class="argent-boite">Money<span>Track</span></div>
-                        <div class="barres"><i></i><i></i><i></i><i></i><i></i></div>
-                    </div>
-                    <div class="carte-bas">
-                        <div><h3>MoneyTrack</h3><p>Gestion de finances</p></div>
-                        <a class="fleche" href="#contact" aria-label="En savoir plus sur MoneyTrack">↗</a>
-                    </div>
+                <article class="carte-apropos">
+                    <span class="icone-carte"><i class="fa-solid fa-bullseye"></i></span>
+                    <h3>Mes objectifs</h3>
+                    <p>Progresser en développement web et mobile, apprendre de nouveaux outils et réaliser des projets ambitieux.</p>
+                </article>
+                <article class="carte-apropos">
+                    <span class="icone-carte violet"><i class="fa-solid fa-users"></i></span>
+                    <h3>Collaboration</h3>
+                    <p>Échanger des idées, partager des connaissances et apprendre avec d'autres passionnés de technologie.</p>
                 </article>
             </div>
-<!-- 
-            deuxieume ligne de projet -->g
-            <div class="cartes">
-                <article class="carte">
-                    <div class="image jeu">
-                        <div class="jeu-boite">GAME<span>ZONE</span></div>
-                        <span class="petit-texte">PLAY · EXPLORE · WIN</span>
-                    </div>
-                    <div class="carte-bas">
-                        <div><h3>GameZone</h3><p>Site de jeux moderne</p></div>
-                        <a class="fleche" href="#contact" aria-label="En savoir plus sur GameZone">↗</a>
-                    </div>
-                </article>
 
-                <article class="carte">
-                    <div class="image etude">
-                        <div class="etude-boite">Study<span>Hub</span></div>
-                        <div class="fausses-lignes"><i></i><i></i><i></i></div>
-                    </div>
-                    <div class="carte-bas">
-                        <div><h3>StudyHub</h3><p>Plateforme éducative</p></div>
-                        <a class="fleche" href="#contact" aria-label="En savoir plus sur StudyHub">↗</a>
-                    </div>
-                </article>
+            <div class="technologies-apropos">
+                <div>
+                    <p class="surtitre">CE QUE J'APPRENDS</p>
+                    <h3>Mes <span class="texte-degrade">technologies</span></h3>
+                    <p class="texte-secondaire">Des outils que j'utilise ou que je souhaite approfondir.</p>
+                </div>
+                <div class="liste-technologies">
+                    <span><i class="fa-brands fa-html5"></i> 
+                        <b class="orange">5</b> HTML5</span>
+                    <span><i class="fa-brands fa-css3-alt"></i> 
+                        <b class="bleu">▧</b>CSS3</span>
+                    <span><i class="fa-brands fa-js"></i> 
+                        <b class="jaune">JS</b>JavaScript</span>
+                    <span><i class="fa-solid fa-display"></i> 
+                        <b class="cyan">⚛</b>React</span>
+                    <span><i class="fa-brands fa-git-alt"></i> 
+                        <b class="violet">✳</b>Git</span>
+                </div>
+            </div>
+            <blockquote class="citation">
+                <span>“</span>
+                <p>Je ne cherche pas seulement à écrire du code, mais à créer quelque chose qui a du sens.</p>
+                <cite>— Charles Azel</cite>
+            </blockquote>
+        </section>
 
-                <article class="carte">
-                    <div class="image argent">
-                        <div class="argent-boite">Money<span>Track</span></div>
-                        <div class="barres"><i></i><i></i><i></i><i></i><i></i></div>
-                    </div>
-                    <div class="carte-bas">
-                        <div><h3>MoneyTrack</h3><p>Gestion de finances</p></div>
-                        <a class="fleche" href="#contact" aria-label="En savoir plus sur MoneyTrack">↗</a>
-                    </div>
+        <section class="section conteneur section-anime" id="projets">
+            <div class="entete-section entete-projets">
+                <div>
+                    <p class="surtitre">CE QUE JE CRÉE</p>
+                    <h2>Mes <span class="texte-degrade">projets</span></h2>
+                    <p>Quelques réalisations et concepts que je développe avec passion.</p>
+                </div>
+                <span class="compteur-projets"><strong id="nombre-projets">3</strong> projets affichés</span>
+            </div>
+
+            <div class="grille-projets" id="grille-projets">
+                <article class="carte-projet">
+                    <div class="visuel-projet bleu"><div class="maquette-projet"><i class="fa-solid fa-gamepad"></i><b>GameZone</b><small>Play · Explore · Enjoy</small></div></div>
+                    <div class="contenu-projet"><div class="titre-projet"><h3>GameZone</h3><span>Web</span></div><p>Une vitrine moderne dédiée aux jeux et à la découverte de nouveaux univers.</p><div class="etiquettes-projet"><span>HTML</span><span>CSS</span><span>JavaScript</span></div><a class="lien-projet" href="#contact">Voir le projet <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
                 </article>
+                <article class="carte-projet">
+                    <div class="visuel-projet violet-fond"><div class="maquette-projet"><i class="fa-solid fa-book-open"></i><b>StudyHub</b><small>Learn · Share · Grow</small></div></div>
+                    <div class="contenu-projet"><div class="titre-projet"><h3>StudyHub</h3><span>Éducation</span></div><p>Une plateforme conceptuelle pour organiser les ressources et faciliter l'apprentissage.</p><div class="etiquettes-projet"><span>HTML</span><span>CSS</span><span>JavaScript</span></div><a class="lien-projet" href="#contact">Voir le projet <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+                </article>
+                <article class="carte-projet">
+                    <div class="visuel-projet vert"><div class="maquette-projet"><i class="fa-solid fa-wallet"></i><b>MoneyTrack</b><small>Track your money</small></div></div>
+                    <div class="contenu-projet"><div class="titre-projet"><h3>MoneyTrack</h3><span>Finance</span></div><p>Une interface de suivi des dépenses pour mieux organiser son budget.</p><div class="etiquettes-projet"><span>HTML</span><span>CSS</span><span>JavaScript</span></div><a class="lien-projet" href="#contact">Voir le projet <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+                </article>
+                <article class="carte-projet projet-cache">
+                    <div class="visuel-projet rose"><div class="maquette-projet"><i class="fa-solid fa-qrcode"></i><b>QR Studio</b><small>Créer · Scanner</small></div></div>
+                    <div class="contenu-projet"><div class="titre-projet"><h3>QR Studio</h3><span>Outil</span></div><p>Un générateur de QR codes avec aperçu, téléchargement et historique.</p><div class="etiquettes-projet"><span>JavaScript</span><span>CSS</span></div><a class="lien-projet" href="#contact">Voir le projet <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+                </article>
+                <article class="carte-projet projet-cache">
+                    <div class="visuel-projet orange"><div class="maquette-projet"><i class="fa-solid fa-cloud-sun"></i><b>Météo Live</b><small>Weather dashboard</small></div></div>
+                    <div class="contenu-projet"><div class="titre-projet"><h3>Météo Live</h3><span>Dashboard</span></div><p>Un tableau de bord météo clair avec des informations faciles à consulter.</p><div class="etiquettes-projet"><span>API</span><span>JavaScript</span></div><a class="lien-projet" href="#contact">Voir le projet <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+                </article>
+                <article class="carte-projet projet-cache">
+                    <div class="visuel-projet bleu"><div class="maquette-projet"><i class="fa-solid fa-list-check"></i><b>TaskFlow</b><small>Plan · Focus · Done</small></div></div>
+                    <div class="contenu-projet"><div class="titre-projet"><h3>TaskFlow</h3><span>Productivité</span></div><p>Une application de tâches pour planifier ses activités et suivre ses priorités.</p><div class="etiquettes-projet"><span>JavaScript</span><span>LocalStorage</span></div><a class="lien-projet" href="#contact">Voir le projet <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+                </article>
+                <article class="carte-projet projet-cache">
+                    <div class="visuel-projet violet-fond"><div class="maquette-projet"><i class="fa-solid fa-calculator"></i><b>CalcPro</b><small>Simple · Rapide</small></div></div>
+                    <div class="contenu-projet"><div class="titre-projet"><h3>CalcPro</h3><span>Utilitaire</span></div><p>Une calculatrice web intuitive avec un affichage lisible sur mobile.</p><div class="etiquettes-projet"><span>HTML</span><span>CSS</span><span>JavaScript</span></div><a class="lien-projet" href="#contact">Voir le projet <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+                </article>
+            </div>
+            <div class="actions-projets">
+                <button class="bouton bouton-secondaire" id="bouton-projets" type="button" aria-expanded="false">Voir tous les projets <i class="fa-solid fa-chevron-down"></i></button>
             </div>
         </section>
 
-        <!-- Compétences -->
-        <section class="section contenu" id="competences">
-            <div class="titre">
-                <span class="sur-titre">MES OUTILS</span>
-                <h2>Mes <span class="degrade">compétences</span></h2>
+        <section class="section conteneur section-anime" id="competences">
+            <div class="entete-section">
+                <p class="surtitre">MON SAVOIR-FAIRE</p>
+                <h2>Mes <span class="texte-degrade">compétences</span></h2>
+                <p>Les technologies et méthodes que je pratique et que je continue à perfectionner.</p>
             </div>
-            <div class="outils">
-                <div><b class="outil-icone orange">5</b><span>HTML</span></div>
-                <div><b class="outil-icone bleu">▧</b><span>CSS</span></div>
-                <div><b class="outil-icone jaune">JS</b><span>JavaScript</span></div>
-                <div><b class="outil-icone cyan">⚛</b><span>React</span></div>
-                <div><b class="outil-icone violet">✳</b><span>Tailwind</span></div>
+            <div class="grille-competences">
+                <article class="carte-competence"><div class="entete-competence"><span><i class="fa-brands fa-html5"></i> HTML5</span><strong>85%</strong></div><div class="barre-progression"><span data-progression="85"></span></div><p>Structure et sémantique des pages web.</p></article>
+                <article class="carte-competence"><div class="entete-competence"><span><i class="fa-brands fa-css3-alt"></i> CSS3</span><strong>80%</strong></div><div class="barre-progression"><span data-progression="80"></span></div><p>Mise en page, design et responsive.</p></article>
+                <article class="carte-competence"><div class="entete-competence"><span><i class="fa-brands fa-js"></i> JavaScript</span><strong>65%</strong></div><div class="barre-progression"><span data-progression="65"></span></div><p>Interactions et fonctionnalités web.</p></article>
+                <article class="carte-competence"><div class="entete-competence"><span><i class="fa-brands fa-git-alt"></i> Git / GitHub</span><strong>60%</strong></div><div class="barre-progression"><span data-progression="60"></span></div><p>Gestion de versions et collaboration.</p></article>
+                <article class="carte-competence"><div class="entete-competence"><span><i class="fa-solid fa-mobile-screen-button"></i> Responsive Design</span><strong>75%</strong></div><div class="barre-progression"><span data-progression="75"></span></div><p>Adaptation aux écrans et appareils.</p></article>
+                <article class="carte-competence"><div class="entete-competence"><span><i class="fa-solid fa-pen-ruler"></i> UI / UX</span><strong>55%</strong></div><div class="barre-progression"><span data-progression="55"></span></div><p>Organisation visuelle et expérience utilisateur.</p></article>
             </div>
         </section>
 
-        <!-- Contact -->
-        <section class="section contenu" id="contact">
-            <div class="contact">
-                <span class="sur-titre">UN PROJET EN TÊTE ?</span>
-                <h2>Créons quelque chose de <span class="degrade">génial.</span></h2>
-                <p>Tu as une idée ou tu souhaites collaborer avec moi ? Écris-moi.</p>
-                <a class="bouton plein" href="mailto:charles@example.com">Me contacter <span>↗</span></a>
-
-                <!-- Formulaire ajouté ; le bouton de contact original reste inchangé. -->
+        <section class="section conteneur section-anime" id="contact">
+            <div class="entete-section">
+                <p class="surtitre">RESTONS EN CONTACT</p>
+                <h2>Parlons de votre <span class="texte-degrade">projet</span></h2>
+                <p>Une question, une idée ou une proposition de collaboration ? Écrivez-moi.</p>
+            </div>
+            <div class="cadre-contact">
+                <div class="informations-contact">
+                    <span class="icone-contact"><i class="fa-regular fa-paper-plane"></i></span>
+                    <h3>Entrons en contact</h3>
+                    <p>Je serai heureux d'échanger avec vous autour de vos idées et projets.</p>
+                    <a class="ligne-contact" href="mailto:charles@example.com">
+                         <i class="fa-regular fa-envelope"> <img src="icones/pngtree-email-icon-png-image_1757854.jpg" alt=""></i>
+                        <span><small>E-mail</small>charlesmonjakidy@gmail.com</span></a>
+                    <a class="ligne-contact" href="#" aria-label="Profil GitHub">
+                        <i class="fa-brands fa-github"><img src="icones/images (1).png" alt=""></i>
+                        <span><small>GitHub</small>Charles Monjakidy</span></a>
+                    <a class="ligne-contact" href="#" aria-label="Profil LinkedIn">
+                        <i class="fa-brands fa-linkedin-in"><img src="icones/images (1).png" alt=""></i>
+                        <span><small>LinkedIn</small>Charles Monjakidy</span></a>
+                    <a class="bouton bouton-principal bouton-large" href="mailto:charlesmonjakidy@gmail.com?subject=Prise%20de%20contact">Me contacter <span>↗</span> 
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
                 <form class="formulaire-contact" id="formulaire-contact">
-                    <div class="champ-formulaire">
-                        <label for="nom-contact">Ton nom</label>
-                        <input id="nom-contact" name="from_name" type="text" placeholder="Ton nom" autocomplete="name" required>
+                    <div class="champ-contact">
+                        <label for="nom-contact">Votre nom</label>
+                        <input id="nom-contact" name="from_name" type="text" placeholder="Entrez votre nom" required>
                     </div>
-                    <div class="champ-formulaire">
-                        <label for="email-contact">Ton e-mail</label>
-                        <input id="email-contact" name="reply_to" type="email" placeholder="toi@exemple.com" autocomplete="email" required>
+                    <div class="champ-contact">
+                        <label for="email-contact">Votre adresse e-mail</label>
+                        <input id="email-contact" name="reply_to" type="email" placeholder="nom@exemple.com" required>
                     </div>
-                    <div class="champ-formulaire">
+                    <div class="champ-contact">
                         <label for="sujet-contact">Sujet</label>
-                        <input id="sujet-contact" name="subject" type="text" placeholder="Sujet du message" required>
+                        <input id="sujet-contact" name="subject" type="text" placeholder="Objet de votre message" required>
                     </div>
-                    <div class="champ-formulaire">
-                        <label for="message-contact">Ton message</label>
-                        <textarea id="message-contact" name="message" rows="5" placeholder="Écris ton message ici..." required></textarea>
+                    <div class="champ-contact">
+                        <label for="message-contact">Votre message</label>
+                        <textarea id="message-contact" name="message" rows="5" placeholder="Écrivez votre message ici..." required>
+                        </textarea>
                     </div>
-                    <button class="bouton plein bouton-envoi" id="bouton-envoi" type="submit">Envoyer le message <span>➤</span></button>
-                    <p class="etat-formulaire" id="etat-formulaire" role="status" aria-live="polite"></p>
+                    <button class="bouton bouton-principal bouton-large" type="submit">Envoyer le message <span>➤</span>
+                         <i class="fa-regular fa-paper-plane"></i></button>
+                    <p class="aide-formulaire" id="etat-formulaire" role="status" aria-live="polite">
+                        Le formulaire ouvre votre application e-mail avec le message préparé.
+                    </p>
                 </form>
             </div>
         </section>
     </main>
 
-    <footer class="pied contenu">
-        <a class="logo" href="#accueil">CA<span>.</span></a>
-        <p>© <span id="annee"></span> Charles Azel · Code ✦ Create ✦ Inspire</p>
-        <a href="#accueil" class="retour">Retour en haut ↑</a>
+    <footer class="pied-page">
+        <a class="marque-pied" href="#accueil"><img src="images/logo-charles.png" alt="Logo Charles"></a>
+        <p>© <span id="annee"></span> Charles MONJAKIDY. Tous droits réservés.</p>
+        <a href="#haut" class="retour-haut">Retour en haut <i class="fa-solid fa-arrow-up"></i></a>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

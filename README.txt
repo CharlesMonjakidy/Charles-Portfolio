@@ -1,31 +1,45 @@
-PORTFOLIO — CHARLES AZEL
+PORTFOLIO — CHARLES MONJAKIDY
+================================
 
 FICHIERS
-- index.html : structure du portfolio
-- style.css : couleurs, mise en page et adaptation aux écrans
-- script.js : menu mobile, thème clair/sombre et navigation
+- index.html : contenu et structure de toutes les sections.
+- style.css : thème bleu nuit, cyan et violet, cartes et mise en page.
+- responsive.css : adaptation aux ordinateurs, tablettes et téléphones.
+- animation.css : animations visuelles et apparitions au défilement.
+- script.js : menu, thème, projets, compétences et formulaire.
+- images/logo-charles.png : logo Charles utilisé dans la navigation et le pied de page.
 
-POUR L'OUVRIR
-1. Garde les trois fichiers dans le même dossier.
-2. Ouvre index.html dans ton navigateur.
-3. Pour modifier le site, ouvre les fichiers dans VS Code.
+OUVRIR LE PORTFOLIO
+1. Extraire le dossier ZIP.
+2. Ouvrir le dossier dans Visual Studio Code.
+3. Ouvrir index.html dans un navigateur.
 
-À PERSONNALISER
-- Remplace charles@example.com dans index.html par ton vrai e-mail.
-- Place ton CV PDF à côté de index.html et nomme-le cv.pdf.
-- Mets à jour les descriptions et liens des projets selon tes vrais projets.
+PERSONNALISER LA PHOTO
+Dans index.html, repérer le bloc .emplacement-photo dans la section Accueil.
+Remplacer ce bloc par :
+<img class="photo-personnelle" src="images/ma-photo.jpg" alt="Photo de Charles">
+Puis ajouter dans style.css :
+.photo-personnelle {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
 
-Les illustrations des cartes et du portrait sont faites en CSS : aucune image
-supplémentaire n'est nécessaire pour que cette version fonctionne.
-La police Google Fonts nécessite une connexion Internet ; une police de secours
-est prévue si la connexion est indisponible.
+PERSONNALISER LES LIENS
+- Remplacer les href="#" des réseaux sociaux par les adresses des vrais profils.
+- Remplacer charles@example.com dans index.html et script.js par l'adresse e-mail réelle.
+- Placer le CV dans le dossier principal sous le nom cv.pdf.
+- Modifier les titres, descriptions et liens des projets selon les réalisations réelles.
 
+À SAVOIR
+Le formulaire prépare le message et ouvre le logiciel de messagerie du visiteur.
+Il ne transmet pas directement le message depuis le site. Pour un envoi direct, il faudra
+configurer un service comme EmailJS avec ses identifiants.
 
-FORMULAIRE DE CONTACT (EmailJS)
-Le bouton « Me contacter ↗ » d'origine est conservé. Le formulaire supplémentaire utilise EmailJS.
-1. Crée un compte sur https://www.emailjs.com/
-2. Configure un service e-mail et crée un modèle de message.
-3. Dans le modèle, utilise les variables : {{from_name}}, {{reply_to}}, {{subject}}, {{message}}.
-4. Remplace EMAILJS_CLE_PUBLIQUE, EMAILJS_SERVICE_ID et EMAILJS_TEMPLATE_ID dans script.js.
-5. Dans le modèle, règle Reply-To sur {{reply_to}}.
-Sans ces identifiants, le formulaire n'enverra pas encore de message. Ne place jamais de mot de passe ou clé secrète privée dans le JavaScript.
+Les icônes Font Awesome et les polices externes nécessitent une connexion Internet.
+Le site garde ses styles et son contenu principal sans ces ressources, mais les icônes
+peuvent ne pas s'afficher hors connexion.
+
+Les pourcentages de compétences sont des valeurs de démonstration à ajuster selon
+le niveau réel.

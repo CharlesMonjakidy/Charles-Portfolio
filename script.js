@@ -1,119 +1,204 @@
-// On récupère les éléments utiles de la page.
-const boutonMenu = document.querySelector("#menu");
-const liens = document.querySelector("#liens");
-const boutonNuit = document.querySelector("#nuit");
-const annee = document.querySelector("#annee");
+// ==============================
+ // MENU DE NAVIGATION
+ // ==============================
+const boutonMenu = document.getElementById("bouton-menu");
+const liensNavigation = document.getElementById("liens-navigation");
 
-// Le menu mobile s'ouvre et se ferme quand on appuie sur le bouton.
 boutonMenu.addEventListener("click", function () {
-    const ouvert = liens.classList.toggle("ouvert");
+    const menuOuvert = liensNavigation.classList.toggle("ouvert");
 
-    // On indique aussi l'état du menu aux lecteurs d'écran.
-    boutonMenu.setAttribute("aria-expanded", ouvert);
-    boutonMenu.setAttribute(
-        "aria-label",
-        ouvert ? "Fermer le menu" : "Ouvrir le menu"
-    );
+    boutonMenu.setAttribute("aria-expanded", menuOuvert);
+    boutonMenu.setAttribute("aria-label", menuOuvert ? "Fermer le menu" : "Ouvrir le menu");
 });
 
-// Sur téléphone, le menu se ferme après avoir choisi une rubrique.
-document.querySelectorAll(".liens a").forEach(function (lien) {
+document.querySelectorAll(".lien-navigation").forEach(function (lien) {
     lien.addEventListener("click", function () {
-        liens.classList.remove("ouvert");
+        liensNavigation.classList.remove("ouvert");
         boutonMenu.setAttribute("aria-expanded", "false");
         boutonMenu.setAttribute("aria-label", "Ouvrir le menu");
     });
 });
 
-// Le bouton lune active ou désactive le thème clair.
-boutonNuit.addEventListener("click", function () {
-    document.body.classList.toggle("clair");
+// ==============================
+// THÈME CLAIR ET SOMBRE
+// ==============================
+const boutonTheme = document.getElementById("bouton-theme");
 
-    if (document.body.classList.contains("clair")) {
-        boutonNuit.textContent = "☀";
-        boutonNuit.setAttribute("aria-label", "Activer le thème sombre");
-    } else {
-        boutonNuit.textContent = "☾";
-        boutonNuit.setAttribute("aria-label", "Activer le thème clair");
+boutonTheme.addEventListener("click", function () {
+    const themeClair = document.body.classList.toggle("theme-clair");
+
+    boutonTheme.innerHTML = themeClair
+        ? '🌙'
+        :'☀️';
+
+    boutonTheme.setAttribute(
+        "aria-label",
+        themeClair ? "Activer le thème sombre" : "Activer le thème clair"
+    );
+});
+
+// ==============================
+// CHANGEMENT AUTOMATIQUE DU NOM
+// ==============================
+const nomAnime = document.getElementById("nom-anime");
+const listeNoms = 
+[
+    "Azel",
+    "MONJAKIDY"
+];
+let indiceNom = 0;
+// setInterval(function (){
+//     nomAnime.classList.add("changement-nom");
+//     setTimeout(function (){
+//         indiceNom = (indiceNom + 1)
+//         % listeNoms.length;
+//         nomAnime.textContent = listeNoms[indiceNom];
+//         nomAnime.classList.remove("changement-nom");
+//     }, 400);
+// }, 2500);
+let indiceLettre = 0;
+let effacement = false;
+
+function animerNom(){
+    const nomActuel = listeNoms[indiceNom];
+    if(effacement){
+        indiceLettre--;
+    } else{
+        indiceLettre++;
     }
+    nomAnime.textContent = nomActuel.substring(0, indiceLettre);
+
+    let vitesse = effacement ? 180 : 280;
+    if (!effacement && indiceLettre === nomActuel.length){
+        effacement = true;
+        vitesse = 2500;
+    } else if(effacement && indiceLettre === 0)  {
+        effacement = false;
+        indiceNom = (indiceNom + 1) % listeNoms.length;
+        vitesse = 800;
+    }
+
+    setTimeout(animerNom, vitesse);
+}
+animerNom();
+
+// ==============================
+// ANNÉE AUTOMATIQUE
+// ==============================
+document.getElementById("annee").textContent = new Date().getFullYear();
+
+// ==============================
+// AFFICHAGE DE TOUS LES PROJETS
+// ==============================
+const boutonProjets = document.getElementById("bouton-projets");
+const grilleProjets = document.getElementById("grille-projets");
+const nombreProjets = document.getElementById("nombre-projets");
+const cartesProjets = document.querySelectorAll(".carte-projet");
+
+boutonProjets.addEventListener("click", function () {
+    const toutAfficher = grilleProjets.classList.toggle("tout-afficher");
+
+    nombreProjets.textContent = toutAfficher ? cartesProjets.length : 3;
+    boutonProjets.setAttribute("aria-expanded", toutAfficher);
+    boutonProjets.innerHTML = toutAfficher
+        ? 'Réduire les projets <i class="fa-solid fa-chevron-up"></i>'
+        : 'Voir tous les projets <i class="fa-solid fa-chevron-down"></i>';
 });
 
-// L'année se met à jour automatiquement.
-annee.textContent = new Date().getFullYear();
+// ==============================
+// ANIMATION AU DÉFILEMENT
+// ==============================
+const sectionsAnimees = document.querySelectorAll(".section-anime");
 
-// La rubrique actuelle est soulignée dans le menu pendant le défilement.
-const sections = document.querySelectorAll("main section[id]");
-const liensMenu = document.querySelectorAll(".liens a");
+if ("IntersectionObserver" in window) {
+    const observateurSections = new IntersectionObserver(function (entrees, observateur) {
+        entrees.forEach(function (entree) {
+            if (entree.isIntersecting) {
+                entree.target.classList.add("visible");
+                observateur.unobserve(entree.target);
+            }
+        });
+    }, { threshold: 0.12 });
 
-window.addEventListener("scroll", function () {
-    let actuelle = "accueil";
-
-    sections.forEach(function (section) {
-        if (window.scrollY >= section.offsetTop - 150) {
-            actuelle = section.id;
-        }
+    sectionsAnimees.forEach(function (section) {
+        observateurSections.observe(section);
     });
-
-    liensMenu.forEach(function (lien) {
-        lien.classList.toggle(
-            "actif",
-            lien.getAttribute("href") === "#" + actuelle
-        );
-    });
-});
-
-
-// ==============================
-// Apparition des éléments au défilement
-// ==============================
-document.addEventListener("DOMContentLoaded", function () {
-    const elements = document.querySelectorAll("section, .carte, .projet, .projet-carte, .competence, .outil, .formulaire-contact");
-    elements.forEach(function (element) { element.classList.add("animable"); });
-    if ("IntersectionObserver" in window) {
-        const observateur = new IntersectionObserver(function (entrees, observer) {
-            entrees.forEach(function (entree) {
-                if (entree.isIntersecting) { entree.target.classList.add("visible"); observer.unobserve(entree.target); }
-            });
-        }, { threshold: 0.12 });
-        elements.forEach(function (element) { observateur.observe(element); });
-    } else { elements.forEach(function (element) { element.classList.add("visible"); }); }
-});
-
-// ==============================
-// Formulaire d'envoi avec EmailJS
-// ==============================
-// Crée un compte sur https://www.emailjs.com/ puis remplace les 3 identifiants.
-const EMAILJS_CLE_PUBLIQUE = "REMPLACE_PAR_TA_CLE_PUBLIQUE";
-const EMAILJS_SERVICE_ID = "REMPLACE_PAR_TON_SERVICE_ID";
-const EMAILJS_TEMPLATE_ID = "REMPLACE_PAR_TON_TEMPLATE_ID";
-
-const formulaireContact = document.getElementById("formulaire-contact");
-if (formulaireContact) {
-    formulaireContact.addEventListener("submit", async function (event) {
-        event.preventDefault();
-        const bouton = document.getElementById("bouton-envoi");
-        const statut = document.getElementById("etat-formulaire");
-        if (typeof emailjs === "undefined" || EMAILJS_CLE_PUBLIQUE.startsWith("REMPLACE_") || EMAILJS_SERVICE_ID.startsWith("REMPLACE_") || EMAILJS_TEMPLATE_ID.startsWith("REMPLACE_")) {
-            statut.textContent = "Il faut d'abord configurer EmailJS dans script.js pour activer l'envoi.";
-            statut.style.color = "#FBBF24";
-            return;
-        }
-        bouton.disabled = true;
-        bouton.textContent = "Envoi en cours…";
-        statut.textContent = "";
-        try {
-            emailjs.init({ publicKey: EMAILJS_CLE_PUBLIQUE });
-            await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formulaireContact);
-            statut.textContent = "Message envoyé avec succès ! Merci pour ton message.";
-            statut.style.color = "#34D399";
-            formulaireContact.reset();
-        } catch (erreur) {
-            console.error("Erreur EmailJS :", erreur);
-            statut.textContent = "Échec de l'envoi. Vérifie la configuration EmailJS puis réessaie.";
-            statut.style.color = "#F87171";
-        } finally {
-            bouton.disabled = false;
-            bouton.innerHTML = 'Envoyer le message <span>➤</span>';
-        }
+} else {
+    sectionsAnimees.forEach(function (section) {
+        section.classList.add("visible");
     });
 }
+
+// ==============================
+// BARRES DE COMPÉTENCES ANIMÉES
+// ==============================
+const barresProgression = document.querySelectorAll(".barre-progression span");
+
+if ("IntersectionObserver" in window) {
+    const observateurCompetences = new IntersectionObserver(function (entrees, observateur) {
+        entrees.forEach(function (entree) {
+            if (entree.isIntersecting) {
+                const progression = entree.target.dataset.progression;
+                entree.target.style.width = progression + "%";
+                observateur.unobserve(entree.target);
+            }
+        });
+    }, { threshold: 0.4 });
+
+    barresProgression.forEach(function (barre) {
+        observateurCompetences.observe(barre);
+    });
+} else {
+    barresProgression.forEach(function (barre) {
+        barre.style.width = barre.dataset.progression + "%";
+    });
+}
+
+// ==============================
+// RUBRIQUE ACTIVE DANS LE MENU
+// ==============================
+const sections = document.querySelectorAll("main section[id]");
+const liensMenu = document.querySelectorAll(".lien-navigation");
+
+const observateurNavigation = new IntersectionObserver(function (entrees) {
+    entrees.forEach(function (entree) {
+        if (entree.isIntersecting) {
+            liensMenu.forEach(function (lien) {
+                lien.classList.toggle(
+                    "actif",
+                    lien.getAttribute("href") === "#" + entree.target.id
+                );
+            });
+        }
+    });
+}, { rootMargin: "-35% 0px -55% 0px" });
+
+sections.forEach(function (section) {
+    observateurNavigation.observe(section);
+});
+
+// ==============================
+// FORMULAIRE DE CONTACT
+// Prépare un message dans l'application e-mail.
+ // ==============================
+const formulaireContact = document.getElementById("formulaire-contact");
+const etatFormulaire = document.getElementById("etat-formulaire");
+const adresseContact = "charles@example.com";
+
+formulaireContact.addEventListener("submit", function (evenement) {
+    evenement.preventDefault();
+
+    const donnees = new FormData(formulaireContact);
+    const nom = donnees.get("from_name").trim();
+    const email = donnees.get("reply_to").trim();
+    const sujet = donnees.get("subject").trim();
+    const message = donnees.get("message").trim();
+
+    const corpsMessage = "Nom : " + nom + "\nE-mail : " + email + "\n\n" + message;
+    const lienEmail = "mailto:" + adresseContact
+        + "?subject=" + encodeURIComponent(sujet)
+        + "&body=" + encodeURIComponent(corpsMessage);
+
+    etatFormulaire.textContent = "Ouverture de votre application e-mail...";
+    window.location.href = lienEmail;
+});
