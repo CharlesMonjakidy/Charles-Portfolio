@@ -1,45 +1,63 @@
-PORTFOLIO — CHARLES MONJAKIDY
-================================
+PORTFOLIO FRONT-END DESIGNER — CHARLES MONJAKIDY
 
-FICHIERS
-- index.html : contenu et structure de toutes les sections.
-- style.css : thème bleu nuit, cyan et violet, cartes et mise en page.
-- responsive.css : adaptation aux ordinateurs, tablettes et téléphones.
-- animation.css : animations visuelles et apparitions au défilement.
-- script.js : menu, thème, projets, compétences et formulaire.
-- images/logo-charles.png : logo Charles utilisé dans la navigation et le pied de page.
+CONTENU
+- index.html : structure de la page
+- style.css : design, responsive, transitions et animations
+- script.js : menu mobile, scroll reveal, navigation active et formulaire EmailJS
+- assets/portrait-charles.png : portrait édité pour le hero
+- assets/portfolio-reference.png : aperçu de référence du portfolio
 
-OUVRIR LE PORTFOLIO
-1. Extraire le dossier ZIP.
-2. Ouvrir le dossier dans Visual Studio Code.
-3. Ouvrir index.html dans un navigateur.
+LANCEMENT
+1. Extraire le ZIP.
+2. Ouvrir le dossier dans VS Code.
+3. Ouvrir index.html avec Live Server (extension VS Code) pour voir le site.
 
-PERSONNALISER LA PHOTO
-Dans index.html, repérer le bloc .emplacement-photo dans la section Accueil.
-Remplacer ce bloc par :
-<img class="photo-personnelle" src="images/ma-photo.jpg" alt="Photo de Charles">
-Puis ajouter dans style.css :
-.photo-personnelle {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    object-position: center;
-}
+EMAIL
+Le formulaire utilise EmailJS. Crée un compte sur https://www.emailjs.com/
+Puis crée un service email et un template avec les variables:
+  {{from_name}}, {{reply_to}}, {{message}}
+Remplace YOUR_PUBLIC_KEY, YOUR_SERVICE_ID et YOUR_TEMPLATE_ID dans script.js.
+Le formulaire n'envoie aucun email avant que ces identifiants soient configurés.
 
-PERSONNALISER LES LIENS
-- Remplacer les href="#" des réseaux sociaux par les adresses des vrais profils.
-- Remplacer charles@example.com dans index.html et script.js par l'adresse e-mail réelle.
-- Placer le CV dans le dossier principal sous le nom cv.pdf.
-- Modifier les titres, descriptions et liens des projets selon les réalisations réelles.
+PERSONNALISATION
+- Remplace les liens des réseaux sociaux dans index.html par tes profils.
+- Mets ton CV PDF dans assets/ et nomme-le cv-charles.pdf.
+- Change les projets et pourcentages de compétences selon tes vraies expériences.
+- Les pourcentages de compétences sont des exemples visuels, modifie-les selon ton niveau.
 
-À SAVOIR
-Le formulaire prépare le message et ouvre le logiciel de messagerie du visiteur.
-Il ne transmet pas directement le message depuis le site. Pour un envoi direct, il faudra
-configurer un service comme EmailJS avec ses identifiants.
+NOTE
+Les mini-vignettes de projets sont des éléments décoratifs CSS; tu peux les remplacer par tes propres captures d'écran.
 
-Les icônes Font Awesome et les polices externes nécessitent une connexion Internet.
-Le site garde ses styles et son contenu principal sans ces ressources, mais les icônes
-peuvent ne pas s'afficher hors connexion.
 
-Les pourcentages de compétences sont des valeurs de démonstration à ajuster selon
-le niveau réel.
+AJOUT : ECRAN D'INITIALISATION
+- Deux nouveaux fichiers : initialisation.css et initialisation.js.
+- index.html contient uniquement les liens vers ces deux fichiers et le bloc HTML de l'ecran.
+- style.css et script.js originaux sont conserves sans modification.
+- L'ecran affiche une progression de 0 a 100 %, puis laisse apparaitre le portfolio.
+- Le design reprend le noir, l'orange et le cyan du portfolio et s'adapte aux petits ecrans.
+
+
+AJOUTS DE LA VERSION 2
+- Nouvelle section « Mon univers en bref » entre Accueil et À propos.
+- Statistiques : 6 technologies/domaines, 4 projets présentés, passion et apprentissage continu.
+- Compétences présentées avec six diagrammes circulaires : HTML, CSS, JavaScript, React, Tailwind et UI/UX.
+- Les nouveaux blocs sont responsive sur ordinateur, tablette et téléphone.
+- Les autres sections, le contenu existant, les images et l'écran d'initialisation sont conservés.
+- Les pourcentages des compétences sont des indicateurs visuels de présentation : ajuste-les selon ton niveau réel.
+
+
+VERSION AMELIOREE — SECTIONS ET ANIMATIONS
+- La section Compétences est indépendante et réunit les diagrammes circulaires existants et les cartes Outils.
+- Outils affichés : VS Code, Figma, Facteur, Git, GitHub, OpenAI, Photoshop et Docker.
+- La section À propos est indépendante. Le texte original est conservé.
+- Un boîtier de code 3D s'ouvre quand il entre dans la zone visible et se referme quand on quitte cette zone.
+- Trois cadres Parcours, Vision et Objectifs sont placés sous le boîtier.
+- La section Projets possède un bouton Voir tous / Réduire fonctionnel.
+- La section Expériences & Réalisations présente une frise animée au défilement.
+- La section Contact conserve le formulaire et les liens existants et ajoute trois cadres de contact.
+- Les polices Orbitron (titres) et Rajdhani (textes) sont chargées depuis Google Fonts. Une connexion Internet est nécessaire pour les télécharger; des polices de remplacement sont prévues.
+- Les animations de défilement respectent le réglage système de réduction des animations autant que possible.
+- Les contenus de la frise reprennent les projets et apprentissages présents dans le contexte du portfolio; aucune date d'emploi ni entreprise n'a été inventée.
+
+LOGOS DES OUTILS
+Les logos des outils sont enregistrés localement dans assets/outils/ au format SVG. Ils ne nécessitent pas de connexion Internet pour s’afficher.

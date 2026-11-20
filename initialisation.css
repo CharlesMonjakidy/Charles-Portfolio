@@ -1,0 +1,270 @@
+/* =========================================================
+   ÉCRAN D'INITIALISATION — CHARLES MONJAKIDY
+   Fichier séparé : ne modifie pas le style.css existant.
+   Palette reprise du portfolio : noir, orange et cyan.
+   ========================================================= */
+
+.ecran-initialisation {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 48%, rgba(0, 229, 245, .07), transparent 42%),
+    radial-gradient(ellipse at 15% 80%, rgba(255, 114, 8, .08), transparent 35%),
+    #030607;
+  color: #f6f7fb;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .65s ease, visibility .65s ease;
+}
+
+.ecran-initialisation::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .18;
+  background-image:
+    linear-gradient(rgba(0, 229, 245, .08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 245, .08) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse, black, transparent 78%);
+}
+
+.ecran-initialisation.masquer-initialisation {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.cadre-initialisation {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 520px);
+  padding: 28px 8px;
+}
+
+.ligne-haute {
+  width: min(68%, 270px);
+  height: 5px;
+  margin: 0 auto 24px;
+  background: #f6f7fb;
+  box-shadow: 0 0 16px rgba(0, 229, 245, .16);
+}
+
+.logo-initialisation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  margin-bottom: 64px;
+  font-family: Inter, Arial, sans-serif;
+  font-size: clamp(58px, 13vw, 88px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -7px;
+  color: #fff;
+  text-shadow: 0 0 24px rgba(0, 229, 245, .08);
+}
+
+.symbole-logo {
+  color: #ff7208;
+  letter-spacing: -8px;
+}
+
+.logo-initialisation span:last-child {
+  color: #00e5f5;
+}
+
+.texte-initialisation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 30px;
+  margin-bottom: 28px;
+  color: #00e5f5;
+  font-size: clamp(11px, 2.8vw, 16px);
+  font-weight: 600;
+  letter-spacing: clamp(2px, .7vw, 5px);
+  text-align: center;
+}
+
+.curseur-initialisation {
+  display: inline-block;
+  width: 8px;
+  height: 22px;
+  flex: 0 0 8px;
+  background: #00e5f5;
+  box-shadow: 0 0 12px #00e5f5;
+  animation: clignoter-initialisation .8s steps(2, start) infinite;
+}
+
+.piste-progression {
+  width: 100%;
+  height: 5px;
+  overflow: hidden;
+  background: rgba(195, 199, 208, .15);
+  box-shadow: 0 0 0 1px rgba(0, 229, 245, .06);
+}
+
+.progression {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #ff7208, #ff9b38, #00e5f5);
+  box-shadow: 0 0 14px rgba(0, 229, 245, .45);
+  transition: width .08s linear;
+}
+
+.infos-progression {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 20px;
+  color: #aeb3bf;
+  font-family: Inter, Arial, sans-serif;
+  font-size: clamp(10px, 2.6vw, 13px);
+  letter-spacing: 1px;
+}
+
+.infos-progression strong {
+  color: #ff9b38;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.signature-initialisation {
+  margin-top: 54px;
+  color: rgba(195, 199, 208, .55);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.signature-initialisation span {
+  color: #00e5f5;
+  padding: 0 5px;
+}
+
+.coins {
+  position: absolute;
+  width: 62px;
+  height: 62px;
+  border-color: rgba(255, 114, 8, .5);
+  border-style: solid;
+  pointer-events: none;
+}
+
+.coin-haut-gauche {
+  top: 28%;
+  left: 0;
+  border-width: 1px 0 0 1px;
+}
+
+.coin-haut-droit {
+  top: 28%;
+  right: 0;
+  border-width: 1px 1px 0 0;
+}
+
+.coin-bas-gauche {
+  bottom: 28%;
+  left: 0;
+  border-width: 0 0 1px 1px;
+}
+
+.coin-bas-droit {
+  right: 0;
+  bottom: 28%;
+  border-width: 0 1px 1px 0;
+}
+
+@keyframes clignoter-initialisation {
+  to { opacity: 0; }
+}
+
+/* Téléphones */
+@media (max-width: 600px) {
+  .ecran-initialisation {
+    padding: 20px;
+  }
+
+  .cadre-initialisation {
+    width: 100%;
+    padding: 20px 0;
+  }
+
+  .logo-initialisation {
+    margin-bottom: 52px;
+    letter-spacing: -5px;
+  }
+
+  .texte-initialisation {
+    margin-bottom: 24px;
+    letter-spacing: 2px;
+  }
+
+  .signature-initialisation {
+    margin-top: 44px;
+    font-size: 9px;
+    letter-spacing: 1.3px;
+  }
+
+  .coins {
+    width: 35px;
+    height: 35px;
+  }
+
+  .coin-haut-gauche,
+  .coin-haut-droit {
+    top: 22%;
+  }
+
+  .coin-bas-gauche,
+  .coin-bas-droit {
+    bottom: 22%;
+  }
+}
+
+/* Très petits écrans */
+@media (max-width: 360px) {
+  .ecran-initialisation {
+    padding: 14px;
+  }
+
+  .logo-initialisation {
+    font-size: 56px;
+    margin-bottom: 42px;
+  }
+
+  .texte-initialisation {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  .infos-progression {
+    font-size: 9px;
+  }
+
+  .infos-progression strong {
+    font-size: 15px;
+  }
+}
+
+/* Respect du réglage de réduction des animations */
+@media (prefers-reduced-motion: reduce) {
+  .curseur-initialisation {
+    animation: none;
+  }
+
+  .ecran-initialisation,
+  .progression {
+    transition-duration: .01ms;
+  }
+}
