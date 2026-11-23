@@ -61,3 +61,30 @@ VERSION AMELIOREE — SECTIONS ET ANIMATIONS
 
 LOGOS DES OUTILS
 Les logos des outils sont enregistrés localement dans assets/outils/ au format SVG. Ils ne nécessitent pas de connexion Internet pour s’afficher.
+
+
+PERSONNALISER LES CARTES DE PROJETS
+1. Ouvre index.html dans VS Code et cherche « SECTION PROJETS ».
+2. Pour chaque carte, remplace la valeur href="LIEN_..._A_REMPLACER" par le lien réel de ton projet.
+3. Les deux captures déjà intégrées sont :
+   - assets/projets/portfolio.png
+   - assets/projets/calculatrice.png
+4. Pour ajouter une capture à la To-Do List, place ton image dans assets/projets/
+   (par exemple to-do-list.png), puis décommente et adapte la balise img déjà indiquée
+   dans la troisième carte.
+5. Pour le site touristique, fais la même chose avec une image comme toliara.png
+   dans la quatrième carte.
+6. Pour changer une capture existante, garde le nom du fichier ou modifie le chemin
+   dans l'attribut src de la balise img.
+7. Chaque carte entière est cliquable : le visiteur arrive directement sur le lien
+   indiqué dans son attribut href.
+
+BOUTON CV SUR MOBILE
+Le lien « Télécharger CV » existe dans le menu mobile. Place ton fichier PDF dans
+assets/ et nomme-le cv-charles.pdf, ou modifie le chemin href si ton fichier porte
+un autre nom.
+
+CSS
+Le sélecteur :root a été remplacé par body. Les propriétés personnalisées restent
+accessibles à toutes les sections du site. Le CSS a été aéré pour présenter les
+sélecteurs et les propriétés ligne par ligne.
